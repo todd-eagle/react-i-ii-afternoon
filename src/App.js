@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PaigeView from './components/PaigeView'
 import data from './data/data'
+import './App.css'
 
 export default class App extends Component {
   constructor(){
@@ -29,10 +30,18 @@ export default class App extends Component {
     })
     const selected = pageInfo[this.state.selectedData]
     const pview = <PaigeView info={selected}  count={pageInfo.length} current={this.state.selectedData}/>
-  return <div>{pview}
-          <button onClick={this.previous}>previous</button>
-          <button onClick={this.next}>next</button>   
-          </div>
+  return <div className="App-container">
+            <div className="App-header">
+              <div className="App-logo">Home</div>
+            </div>
+            <div className="App-background">
+              {pview}
+            <div className="App-buttons">
+              <button className="App-button-left App-btn" onClick={this.previous}>&#60; Previous</button>
+              <button className="App-button-right App-btn" onClick={this.next}>Next &#62;</button>
+            </div>    
+            </div>
+        </div>
    
   }
 
